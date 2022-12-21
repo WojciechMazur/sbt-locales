@@ -30,6 +30,7 @@ lazy val scalaVersion212 = "2.12.17" // needs to match the version for sbt
 
 lazy val commonSettings = Seq(
   name := "sbt-locales",
+  version := "4.2.0",
   scalaVersion := scalaVersion212,
   javaOptions ++= Seq("-Dfile.encoding=UTF8"),
   autoAPIMappings := true
@@ -46,7 +47,7 @@ lazy val api = crossProject(JSPlatform, JVMPlatform, NativePlatform)
     crossScalaVersions := Seq(scalaVersion212, "2.13.10", "3.2.1", "2.11.12"),
     libraryDependencies ++= List(
       ("org.portable-scala" %%% "portable-scala-reflect" % "1.1.2").cross(CrossVersion.for3Use2_13),
-      "org.scalameta"       %%% "munit"                  % "1.0.0-M7" % Test
+      // "org.scalameta"       %%% "munit"                  % "1.0.0-M7" % Test
     ),
     testFrameworks += new TestFramework("munit.Framework")
   )
